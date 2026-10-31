@@ -13,8 +13,8 @@ window.INVITATION_CONFIG = {
   eventTime: "11:00 AM – 3:00 PM",
   watermarkImage: "assets/images/watermark.png",
   galleryImages: [
-    // { src: "assets/images/family-1.jpg", alt: "Family photograph", caption: "A family moment" },
-    // { src: "assets/images/family-2.jpg", alt: "Baby photograph", caption: "Our little sunshine" },
-    // { src: "assets/images/family-3.jpg", alt: "Family photograph", caption: "Together" }
+     { src: "assets/images/family-1.jpg", alt: "Family photograph", caption: "A family moment" },
+     { src: "assets/images/family-2.jpg", alt: "Baby photograph", caption: "Our little sunshine" },
+     { src: "assets/images/family-3.jpg", alt: "Family photograph", caption: "Together" }
   ]
 };
