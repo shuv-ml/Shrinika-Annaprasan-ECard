@@ -76,26 +76,72 @@ h3 { margin: 8px 0; font-size: 30px; }
   .countdown span { font-size: 8px; letter-spacing: .07em; }
 }
 
+/* Translate + Music controls */
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Music button */
 .music-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    background: rgba(30, 35, 65, 0.9);
-    color: #f5d99b;
+    width: 40px;
+    height: 40px;
+    padding: 0;
 
-    border: 1px solid #d6b56d;
-    border-radius: 30px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 
-    padding: 12px 20px;
-    font-size: 14px;
+    color: inherit;
+    font-size: 25px;
     cursor: pointer;
+    flex-shrink: 0;
+}
 
+/* Music note */
+.music-icon {
+    line-height: 1;
     font-family: Georgia, serif;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+
+/* Slash shown when music is off */
+.music-slash {
+    display: none;
+    position: absolute;
+
+    width: 29px;
+    height: 2px;
+
+    background: currentColor;
+    transform: rotate(-48deg);
+    border-radius: 2px;
+}
+
+/* Off state */
+.music-toggle.is-off .music-slash {
+    display: block;
 }
 
 .music-toggle:hover {
-    background: #454b78;
+    opacity: 0.75;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .header-actions {
+        gap: 6px;
+    }
+
+    .music-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 22px;
+    }
 }
