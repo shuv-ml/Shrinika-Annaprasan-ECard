@@ -44,7 +44,7 @@ Come, be a part of this special day and make our cherished memories even more be
       </div>
     </section>
 
- <section id="annaprasan" class="section story-section">
+<section id="annaprasan" class="section story-section">
   <div class="section-inner narrow">
 
     <p class="eyebrow"
@@ -53,24 +53,23 @@ Come, be a part of this special day and make our cherished memories even more be
       A cherished Bengali tradition
     </p>
 
-    <h2
-      data-en="The meaning of Annaprasan"
-      data-bn="অন্নপ্রাশনের তাৎপর্য">
+    <h2 data-en="The meaning of Annaprasan"
+        data-bn="অন্নপ্রাশনের তাৎপর্য">
       The meaning of Annaprasan
     </h2>
 
     <div class="ornament" aria-hidden="true">✧ ❀ ✧</div>
 
     <div class="story-scroll">
+
       <img
         src="images/antique-scroll.png"
-        alt="An antique parchment scroll"
+        alt="An ancient decorative parchment scroll"
         class="story-scroll-image"
       />
 
-      <p
-        class="story-scroll-text"
-        data-en="Rooted in an ancient Indian tradition, Annaprasan marks a beautiful milestone in a child's journey — the first taste of solid food. Counted among the sixteen sacred Sanskaras of Hindu tradition, this ceremony celebrates nourishment, growth and the blessings of a new beginning.
+      <p class="story-scroll-text"
+         data-en="Rooted in an ancient Indian tradition, Annaprasan marks a beautiful milestone in a child's journey — the first taste of solid food. Counted among the sixteen sacred Sanskaras of Hindu tradition, this ceremony celebrates nourishment, growth and the blessings of a new beginning.
 
 Its origins reach back to the ancient Grihya Sutras, which describe the first feeding of rice, often accompanied by curd, honey and ghee, along with prayers for the child's health, wisdom and prosperity. Even the Manusmriti makes reference to this cherished milestone, traditionally placing it in the sixth month of a child's life.
 
@@ -79,7 +78,8 @@ In Bengal, this age-old tradition lives on as *Mukhe Bhaat* — a celebration wh
 Today, as little Shrinika takes her first taste of rice, we celebrate not just a ritual passed down through generations, but the beginning of countless beautiful journeys yet to unfold.
 
 May her life always be filled with love, good health, wisdom and abundance!"
-        data-bn="অন্নপ্রাশন বাংলায় মুখেভাত নামে পরিচিত। এই অনুষ্ঠানে শিশুকে প্রথমবার ভাত খাওয়ানো হয়। পরিবার একত্রিত হয়ে আশীর্বাদ, স্নেহ ও শুভকামনা জানায়।">
+         data-bn="অন্নপ্রাশন বাংলায় মুখেভাত নামে পরিচিত। এই অনুষ্ঠানে শিশুকে প্রথমবার ভাত খাওয়ানো হয়। পরিবার একত্রিত হয়ে আশীর্বাদ, স্নেহ ও শুভকামনা জানায়.">
+
 Rooted in an ancient Indian tradition, Annaprasan marks a beautiful milestone in a child's journey — the first taste of solid food. Counted among the sixteen sacred Sanskaras of Hindu tradition, this ceremony celebrates nourishment, growth and the blessings of a new beginning.
 
 Its origins reach back to the ancient Grihya Sutras, which describe the first feeding of rice, often accompanied by curd, honey and ghee, along with prayers for the child's health, wisdom and prosperity. Even the Manusmriti makes reference to this cherished milestone, traditionally placing it in the sixth month of a child's life.
@@ -89,64 +89,70 @@ In Bengal, this age-old tradition lives on as *Mukhe Bhaat* — a celebration wh
 Today, as little Shrinika takes her first taste of rice, we celebrate not just a ritual passed down through generations, but the beginning of countless beautiful journeys yet to unfold.
 
 May her life always be filled with love, good health, wisdom and abundance!
-      </p>
-    </div>
 
+      </p>
+
+    </div>
   </div>
 </section>
 
 <style>
+/* Remove borders from this section only */
+#annaprasan,
+#annaprasan .section-inner,
+#annaprasan .story-scroll,
+#annaprasan .story-scroll-image {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Scroll layout */
-.story-scroll {
+#annaprasan .story-scroll {
   position: relative;
   max-width: 850px;
   margin: 30px auto;
-  padding: 40px;
-  background: linear-gradient(
-    135deg,
-    #f8edda,
-    #f0dfbd,
-    #f8edda
-  );
-  border: 2px solid #c29b62;
-  border-radius: 12px;
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    inset 0 0 25px rgba(150, 100, 40, 0.12);
-  color: #59432c;
+  padding: 35px;
+  background: transparent;
+  border-radius: 0;
   overflow: hidden;
 }
 
-/* Decorative scroll image */
-.story-scroll-image {
+/* Scroll image with wrapping text */
+#annaprasan .story-scroll-image {
   float: left;
   width: 35%;
   max-width: 260px;
   height: auto;
   margin: 5px 28px 18px 0;
-  border-radius: 8px;
   shape-outside: margin-box;
-  filter: sepia(15%);
+  border-radius: 0;
 }
 
-/* Text styling */
-.story-scroll-text {
+/* Story typography */
+#annaprasan .story-scroll-text {
   font-family: Georgia, serif;
   font-size: 16px;
   line-height: 1.9;
   text-align: justify;
   white-space: pre-line;
-  color: #59432c;
 }
 
-/* Mobile responsiveness */
+/* Clear float after content */
+#annaprasan .story-scroll::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Mobile layout */
 @media (max-width: 600px) {
-  .story-scroll {
-    padding: 22px;
-    margin: 20px 5px;
+  #annaprasan .story-scroll {
+    padding: 15px 5px;
+    margin: 20px auto;
   }
 
-  .story-scroll-image {
+  #annaprasan .story-scroll-image {
     float: none;
     display: block;
     width: 70%;
@@ -154,7 +160,7 @@ May her life always be filled with love, good health, wisdom and abundance!
     margin: 0 auto 22px;
   }
 
-  .story-scroll-text {
+  #annaprasan .story-scroll-text {
     font-size: 14px;
     line-height: 1.8;
     text-align: left;
