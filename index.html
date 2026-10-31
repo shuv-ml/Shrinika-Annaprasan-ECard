@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
         flakes.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            radius: Math.random() * 3 + 1,
+            radius: Math.random() * 3 + 1.5,
             speed: Math.random() * 2 + 1,
             drift: Math.random() * 1 - 0.5,
             opacity: Math.random() * 0.6 + 0.3
@@ -341,7 +341,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 Math.PI * 2
             );
 
-            ctx.fillStyle = `rgba(255,255,255,${flake.opacity})`;
+            ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = "white";
             ctx.fill();
 
             flake.y += flake.speed;
