@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/background-music.mp3" type="audio/mpeg">
+  </audio>
   <div class="watermark" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#invitation" aria-label="Go to invitation">✿</a>
@@ -22,6 +25,56 @@
     </nav>
     <button id="languageToggle" class="language-button" type="button" aria-pressed="false">Translate to Bengali</button>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <button id="musicToggle" class="music-toggle">
+    ♫ Music On
+  </button>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const music = document.getElementById("bgMusic");
+    const toggle = document.getElementById("musicToggle");
+
+    let isPlaying = false;
+
+    // Attempt autoplay
+    function startMusic() {
+        music.play()
+            .then(() => {
+                isPlaying = true;
+                toggle.textContent = "♫ Music On";
+            })
+            .catch(() => {
+                isPlaying = false;
+                toggle.textContent = "♫ Play Music";
+            });
+    }
+
+    // Play music after visitor interaction
+    document.addEventListener("click", function firstInteraction() {
+        if (!isPlaying) {
+            startMusic();
+        }
+        document.removeEventListener("click", firstInteraction);
+    });
+
+    // Music toggle
+    toggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        if (music.paused) {
+            startMusic();
+        } else {
+            music.pause();
+            isPlaying = false;
+            toggle.textContent = "♫ Music Off";
+        }
+    });
+
+    // Initial autoplay attempt
+    startMusic();
+
+});
+</script>
   </header>
 
   <main>
