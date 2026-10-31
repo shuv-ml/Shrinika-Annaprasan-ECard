@@ -7,7 +7,7 @@ window.INVITATION_CONFIG = {
   venueName: "AVANI REGENCY Community Hall",
   venueAddress: "AVANI REGENCY, Rajendra Prasad Colony, Tollygunge, Kolkata, West Bengal 700033",
   // Replace with the real venue address or Google Maps search phrase.
-  mapQuery: "Test",
+  mapQuery: "AVANI REGENCY, Rajendra Prasad Colony, Tollygunge, Kolkata, West Bengal 700033",
   eventDate: "13th December 2026 (Sunday)",
   eventDateTime: "2026-12-13T11:00:00",
   eventTime: "11:00 AM – 3:00 PM",
