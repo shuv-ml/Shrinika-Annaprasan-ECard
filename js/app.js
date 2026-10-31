@@ -19,27 +19,105 @@
   }
 
   // Render configurable family photographs.
+  
+  // Render configurable family photographs with interactive flip cards.
   const gallery = $("#photoGallery");
-  const photos = Array.isArray(config.galleryImages) ? config.galleryImages : [];
-  if (photos.length) {
-    photos.forEach((photo) => {
-      const figure = document.createElement("figure");
-      figure.className = "photo-card";
-      const img = document.createElement("img");
-      img.src = photo.src;
-      img.alt = photo.alt || "Family photograph";
-      img.loading = "lazy";
-      const caption = document.createElement("figcaption");
-      caption.textContent = photo.caption || "";
-      figure.append(img, caption);
-      gallery.appendChild(figure);
-    });
-  } else {
-    const empty = document.createElement("div");
-    empty.className = "empty-gallery";
-    empty.textContent = "Add your family photographs in js/config.js under galleryImages.";
-    gallery.appendChild(empty);
+  const photos = Array.isArray(config.galleryImages)
+    ? config.galleryImages
+    : [];
+
+  if (gallery) {
+    gallery.innerHTML = "";
+
+    if (photos.length) {
+      photos.forEach((photo) => {
+        // Main card
+        const figure = document.createElement("figure");
+        figure.className = "photo-card";
+        figure.setAttribute("tabindex", "0");
+        figure.setAttribute("role", "button");
+        figure.setAttribute("aria-label", "View photo story");
+
+        // Inner container for 3D flip
+        const inner = document.createElement("div");
+        inner.className = "photo-card-inner";
+
+        // FRONT: Photograph and caption
+        const front = document.createElement("div");
+        front.className = "photo-card-front";
+
+        const img = document.createElement("img");
+        img.src = photo.src;
+        img.alt = photo.alt || "Family photograph";
+        img.loading = "lazy";
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = photo.caption || "";
+
+        front.append(img, caption);
+
+        // BACK: Story title and description
+        const back = document.createElement("div");
+        back.className = "photo-card-back";
+
+        const storyTitle = document.createElement("h3");
+        storyTitle.textContent =
+          photo.storyTitle || photo.caption || "A Special Memory";
+
+        const storyText = document.createElement("p");
+        storyText.textContent =
+          photo.story || "A beautiful memory from our family's journey.";
+
+        back.append(storyTitle, storyText);
+
+        // Assemble card
+        inner.append(front, back);
+        figure.appendChild(inner);
+        gallery.appendChild(figure);
+
+        // Interaction: spin → story → original photograph
+        function togglePhotoCard() {
+          // Prevent another click while the spinning animation is running.
+          if (figure.classList.contains("spinning")) {
+            return;
+          }
+
+          // If the story is visible, return to the photograph.
+          if (figure.classList.contains("flipped")) {
+            figure.classList.remove("flipped");
+            figure.setAttribute("aria-label", "View photo story");
+            return;
+          }
+
+          // Otherwise, spin the photograph before revealing the story.
+          figure.classList.add("spinning");
+
+          window.setTimeout(() => {
+            figure.classList.remove("spinning");
+            figure.classList.add("flipped");
+            figure.setAttribute("aria-label", "Return to photograph");
+          }, 1000);
+        }
+
+        figure.addEventListener("click", togglePhotoCard);
+
+        // Keyboard accessibility: Enter or Space activates the card.
+        figure.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            togglePhotoCard();
+          }
+        });
+      });
+    } else {
+      const empty = document.createElement("div");
+      empty.className = "empty-gallery";
+      empty.textContent =
+        "Add your family photographs in js/config.js under galleryImages.";
+      gallery.appendChild(empty);
+    }
   }
+
 
   // Smooth in-page navigation and mobile navigation.
   const nav = $(".main-nav");
