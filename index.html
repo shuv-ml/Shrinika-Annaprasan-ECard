@@ -25,53 +25,71 @@
     </nav>
     <button id="languageToggle" class="language-button" type="button" aria-pressed="false">Translate to Bengali</button>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <button id="musicToggle" class="music-toggle">
-    ♫ Music On
-  </button>
+    <button id="musicToggle"
+            class="music-toggle is-off"
+            aria-label="Play music"
+            title="Play music">
+
+        <span class="music-icon">♫</span>
+        <span class="music-slash"></span>
+
+    </button>
+ 
   <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const music = document.getElementById("bgMusic");
     const toggle = document.getElementById("musicToggle");
 
-    let isPlaying = false;
+    function updateButton(playing) {
 
-    // Attempt autoplay
-    function startMusic() {
-        music.play()
-            .then(() => {
-                isPlaying = true;
-                toggle.textContent = "♫ Music On";
-            })
-            .catch(() => {
-                isPlaying = false;
-                toggle.textContent = "♫ Play Music";
-            });
+        toggle.classList.toggle("is-off", !playing);
+
+        toggle.setAttribute(
+            "aria-label",
+            playing ? "Turn music off" : "Play music"
+        );
+
+        toggle.setAttribute(
+            "title",
+            playing ? "Turn music off" : "Play music"
+        );
     }
 
-    // Play music after visitor interaction
-    document.addEventListener("click", function firstInteraction() {
-        if (!isPlaying) {
-            startMusic();
-        }
-        document.removeEventListener("click", firstInteraction);
-    });
+    // Attempt automatic playback when page opens
+    music.play()
+        .then(() => {
+            updateButton(true);
+        })
+        .catch(() => {
+            updateButton(false);
+        });
 
-    // Music toggle
-    toggle.addEventListener("click", function (event) {
-        event.stopPropagation();
+    // Toggle music on click
+    toggle.addEventListener("click", function () {
 
         if (music.paused) {
-            startMusic();
+
+            music.play()
+                .then(() => {
+                    updateButton(true);
+                })
+                .catch(() => {
+                    updateButton(false);
+                });
+
         } else {
+
             music.pause();
-            isPlaying = false;
-            toggle.textContent = "♫ Music Off";
+            updateButton(false);
+
         }
+
     });
 
-    // Initial autoplay attempt
-    startMusic();
+    // Keep icon synchronized with actual playback
+    music.addEventListener("play", () => updateButton(true));
+    music.addEventListener("pause", () => updateButton(false));
 
 });
 </script>
