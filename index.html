@@ -294,5 +294,83 @@ May her life always be filled with love, good health, wisdom and abundance!
 
   <script src="js/config.js"></script>
   <script src="js/app.js"></script>
+  <canvas id="snowfall"></canvas>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const canvas = document.getElementById("snowfall");
+    const ctx = canvas.getContext("2d");
+
+    let flakes = [];
+    let animationId;
+    let active = true;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Create snowflakes
+    for (let i = 0; i < 90; i++) {
+        flakes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 3 + 1,
+            speed: Math.random() * 2 + 1,
+            drift: Math.random() * 1 - 0.5,
+            opacity: Math.random() * 0.6 + 0.3
+        });
+    }
+
+    function animateSnow() {
+        if (!active) return;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        flakes.forEach(flake => {
+
+            ctx.beginPath();
+            ctx.arc(
+                flake.x,
+                flake.y,
+                flake.radius,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fillStyle = `rgba(255,255,255,${flake.opacity})`;
+            ctx.fill();
+
+            flake.y += flake.speed;
+            flake.x += flake.drift;
+
+            if (flake.y > canvas.height) {
+                flake.y = -5;
+                flake.x = Math.random() * canvas.width;
+            }
+
+            if (flake.x > canvas.width) flake.x = 0;
+            if (flake.x < 0) flake.x = canvas.width;
+        });
+
+        animationId = requestAnimationFrame(animateSnow);
+    }
+
+    animateSnow();
+
+    // Stop snowfall after 5 seconds
+    setTimeout(() => {
+        active = false;
+        cancelAnimationFrame(animationId);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.remove();
+        window.removeEventListener("resize", resizeCanvas);
+    }, 5000);
+
+});
+</script>
 </body>
 </html>
