@@ -15,6 +15,7 @@ window.INVITATION_CONFIG = {
   galleryImages: [
      { src: "assets/images/family-1.jpg", alt: "Family photograph", caption: "A family moment" },
      { src: "assets/images/family-2.jpg", alt: "Baby photograph", caption: "Our little sunshine" },
-     { src: "assets/images/family-3.jpg", alt: "Family photograph", caption: "Together" }
+     { src: "assets/images/family-3.jpg", alt: "Family photograph", caption: "Together" },
+     { src: "assets/images/family-4.jpg", alt: "Family photograph", caption: "With Pimoni" }
   ]
 };
