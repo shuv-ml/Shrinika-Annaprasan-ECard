@@ -246,3 +246,18 @@ h3 { margin: 8px 0; font-size: 30px; }
     transition: none;
   }
 }
+
+
+  /* Discourage image selection and dragging */
+  img {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Prevent text selection on photographs */
+  .photo-card,
+  .photo-card img {
+    -webkit-user-select: none;
+    user-select: none;
+  }
