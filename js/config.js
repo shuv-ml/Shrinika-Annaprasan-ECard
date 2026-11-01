@@ -13,10 +13,17 @@ window.INVITATION_CONFIG = {
   eventTime: "11:00 AM – 3:00 PM",
   watermarkImage: "assets/images/watermark.png",
   galleryImages: [
-     { src: "assets/images/family-1.jpg", alt: "Family photograph", caption: "A family moment" },
-     { src: "assets/images/family-2.jpg", alt: "Baby photograph", caption: "Our little sunshine" },
-     { src: "assets/images/family-3.jpg", alt: "Family photograph", caption: "Together",  storyTitle: "The Day Our World Changed",
+     { src: "assets/images/family-1.jpg", alt: "Family photograph", caption: "A family moment", storyTitle: "With Dadan and Thammu",
+    story: "The day I met Thammu and Dadan for the first time" },
+      { src: "assets/images/family-2.jpg", alt: "Family photograph", caption: "A family moment",storyTitle: "With Nana, Nani and Mammu",
+    story: "Having fun with Nana -Nani" }
+     { src: "assets/images/Baby1.jpg", alt: "Baby photograph", caption: "Our little sunshine",storyTitle: "The Day Our World Changed",
     story: "The arrival of Shrinika brought a new kind of happiness into our lives. A little smile, a lifetime of love." },
-     { src: "assets/images/family-4.jpg", alt: "Family photograph", caption: "With Pimoni" }
+     { src: "assets/images/Baby2.jpg", alt: "Family photograph", caption: "Together",  storyTitle: "The Day Our World Changed",
+    story: "The arrival of Shrinika brought a new kind of happiness into our lives. A little smile, a lifetime of love." },
+     { src: "assets/images/family-4.jpg", alt: "Family photograph", caption: "With Pimoni",storyTitle: "With Pimoni",
+    story: "Pimoni and  Me = Unlimited Fun!" },
+     { src: "assets/images/Mamu.jpg", alt: "Family photograph", caption: "With Pimoni",storyTitle: "With Mamu",
+    story: "Mamu's Little Partner in Crime!" }
   ]
 };
