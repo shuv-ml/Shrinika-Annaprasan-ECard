@@ -170,4 +170,42 @@
   }
   updateCountdown();
   window.setInterval(updateCountdown, 1000);
+  
+  // ==========================================
+  // IMAGE PROTECTION
+  // ==========================================
+
+  // Disable right-click context menu throughout the website.
+  document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
+
+  // Prevent dragging and dropping images.
+  document.addEventListener("dragstart", (event) => {
+    if (event.target.tagName === "IMG") {
+      event.preventDefault();
+    }
+  });
+
+  // Discourage common image-saving and developer-tool shortcuts.
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+
+    // Disable Ctrl+S, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J,
+    // Ctrl+Shift+C, and F12.
+    if (
+      (event.ctrlKey && ["s", "u"].includes(key)) ||
+      (event.ctrlKey && event.shiftKey && ["i", "j", "c"].includes(key)) ||
+      key === "f12"
+    ) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+
+  // Prevent selecting image elements.
+  document.querySelectorAll("img").forEach((img) => {
+    img.setAttribute("draggable", "false");
+  });
+
 })();
