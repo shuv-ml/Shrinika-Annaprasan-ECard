@@ -15,8 +15,10 @@ window.INVITATION_CONFIG = {
   galleryImages: [
      { src: "assets/images/family-1.jpg", alt: "Family photograph", caption: "A family moment", storyTitle: "With Dadan and Thammu",
     story: "My First Hello to Thammu & Dadan – A Memory to Treasure!🥰" },
-      { src: "assets/images/family-2.jpg", alt: "Family photograph", caption: "A family moment",storyTitle: "With Nana, Nani and Mammu",
+      { src: "assets/images/family-2.jpg", alt: "Family photograph", caption: "A family moment",storyTitle: "With Nana, Nani and Mamu",
     story: "Spoilt with Love and Laughter by Nana-Nani!" },
+	  { src: "assets/images/Mamu.jpg", alt: "Family photograph", caption: "With Mamu",storyTitle: "With Mamu",
+    story: "Mamu's Little Partner in Crime!!" },
      { src: "assets/images/Baby1.jpg", alt: "Baby photograph", caption: "Our little sunshine",storyTitle: "Tiny Me, Infinite Love – Their Happiness Begins With Me!",
     story: "I am their little world and biggest blessing. Tiny hands, endless love! ❤️" },
      { src: "assets/images/Baby2.jpg", alt: "Family photograph", caption: "Together",  storyTitle: "I May Be Little, But I Am Their Whole World!",
@@ -24,8 +26,7 @@ window.INVITATION_CONFIG = {
 	{ src: "assets/images/family-3.jpg", alt: "Family photograph", caption: "With Pupu",storyTitle: "With Pupu",
     story: "Pupu first came to meet me when I was a tiny newborn, and now she's back for my two-month celebrations! Two visits, double the fun, and loads of cuddles. She's just SO much fun! 🥰💕" },
      { src: "assets/images/family-4.jpg", alt: "Family photograph", caption: "With Pimoni",storyTitle: "With Pimoni",
-    story: "Pimoni and  Me = Unlimited Fun!!" },
-     { src: "assets/images/Mamu.jpg", alt: "Family photograph", caption: "With Mamu",storyTitle: "With Mamu",
-    story: "Mamu's Little Partner in Crime!!" }
+    story: "Pimoni and  Me = Unlimited Fun!!" }
+    
   ]
 };
