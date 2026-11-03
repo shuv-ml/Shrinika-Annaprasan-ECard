@@ -12,8 +12,40 @@
 </head>
 <body>
   <audio id="bgMusic" loop preload="auto">
-    <source src="assets/background-music.mp3" type="audio/mpeg">
+    <source src="assets/background-music.aac" type="audio/mpeg">
   </audio>
+  
+<!-- ENVELOPE INTRO SCREEN -->
+<div id="envelopeScreen" class="envelope-screen">
+  <div class="envelope-container">
+
+    <div class="envelope">
+      <div class="envelope-back"></div>
+
+      <div class="envelope-letter">
+        <div class="letter-content">
+          <p class="letter-eyebrow">A Special Invitation</p>
+          <h1>You're Invited!</h1>
+          <p>To celebrate a beautiful milestone in our little one's life.</p>
+          <span class="letter-flower">❀</span>
+        </div>
+      </div>
+
+      <div class="envelope-front"></div>
+      <div class="envelope-flap"></div>
+
+      <div class="envelope-seal">❀</div>
+    </div>
+
+    <button id="openInviteButton" class="open-invite-button">
+      Open Invite <span>✧</span>
+    </button>
+
+    <p class="envelope-hint">A little celebration, a lifetime of memories</p>
+  </div>
+</div>
+
+  <div id="invitationContent" style="display: none;">
   <div class="watermark" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#invitation" aria-label="Go to invitation">✿</a>
@@ -370,5 +402,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+</div>
 </body>
 </html>

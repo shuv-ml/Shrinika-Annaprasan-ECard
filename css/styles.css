@@ -261,3 +261,181 @@ h3 { margin: 8px 0; font-size: 30px; }
     -webkit-user-select: none;
     user-select: none;
   }
+
+
+/* =====================================
+   ENVELOPE INTRO SCREEN
+===================================== */
+
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8dfd0, #d8c5a8);
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.envelope-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope-container {
+  text-align: center;
+  width: min(90%, 420px);
+}
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 215px;
+  max-width: 100%;
+  margin: 0 auto 45px;
+  perspective: 1000px;
+  filter: drop-shadow(0 15px 18px rgba(65, 42, 25, 0.2));
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #a97850;
+  border-radius: 5px;
+}
+
+.envelope-letter {
+  position: absolute;
+  left: 8%;
+  top: 5%;
+  width: 84%;
+  height: 90%;
+  background: #fffaf0;
+  z-index: 2;
+  transition: transform 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter-content {
+  padding: 15px;
+  color: #68462e;
+}
+
+.letter-eyebrow {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.letter-content h1 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+.letter-content p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.letter-flower {
+  font-size: 24px;
+  color: #b88755;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #c18e61;
+  clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #d4a477;
+  clip-path: polygon(0 0, 100% 0, 50% 62%);
+  transform-origin: top center;
+  transition: transform 0.8s ease;
+}
+
+.envelope-seal {
+  position: absolute;
+  z-index: 5;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #8d3435;
+  color: #f8e4c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: opacity 0.4s ease;
+}
+
+.open-invite-button {
+  padding: 14px 36px;
+  border: 1px solid #8d3435;
+  border-radius: 30px;
+  background: #8d3435;
+  color: #fff8eb;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.open-invite-button:hover {
+  background: #6f292b;
+  transform: translateY(-3px);
+}
+
+.open-invite-button span {
+  margin-left: 8px;
+}
+
+.envelope-hint {
+  margin-top: 20px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #68462e;
+  font-size: 13px;
+}
+
+/* Envelope opening animation */
+.envelope-screen.opening .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-screen.opening .envelope-seal {
+  opacity: 0;
+}
+
+.envelope-screen.opening .envelope-letter {
+  transform: translateY(-90px);
+}
+
+@media (max-width: 480px) {
+  .envelope {
+    width: 280px;
+    height: 190px;
+  }
+
+  .letter-content h1 {
+    font-size: 25px;
+  }
+}

@@ -207,5 +207,59 @@
   document.querySelectorAll("img").forEach((img) => {
     img.setAttribute("draggable", "false");
   });
+  
+  
+  // ==========================================
+  // ENVELOPE OPENING
+  // ==========================================
+
+  const envelopeScreen = document.getElementById("envelopeScreen");
+  const openInviteButton = document.getElementById("openInviteButton");
+  const invitationContent = document.getElementById("invitationContent");
+  const backgroundMusic = document.getElementById("bgMusic");
+  const musicToggle = document.getElementById("musicToggle");
+
+  if (openInviteButton && envelopeScreen && invitationContent) {
+    openInviteButton.addEventListener("click", () => {
+      if (openInviteButton.disabled) return;
+
+      openInviteButton.disabled = true;
+
+      // Start music directly from the click interaction.
+      if (backgroundMusic) {
+        backgroundMusic.play()
+          .then(() => {
+            if (musicToggle) {
+              musicToggle.classList.remove("is-off");
+              musicToggle.setAttribute("aria-label", "Pause music");
+              musicToggle.setAttribute("aria-pressed", "true");
+            }
+          })
+          .catch((error) => {
+            console.warn("Music could not autoplay:", error);
+          });
+      }
+
+      // Animate envelope.
+      envelopeScreen.classList.add("opening");
+
+      // Reveal invitation.
+      window.setTimeout(() => {
+        invitationContent.style.display = "block";
+        envelopeScreen.classList.add("hide");
+
+        window.setTimeout(() => {
+          envelopeScreen.style.display = "none";
+        }, 1000);
+      }, 900);
+    });
+  } else {
+    console.error("Envelope setup error:", {
+      envelopeScreen,
+      openInviteButton,
+      invitationContent
+    });
+  }
+
 
 })();

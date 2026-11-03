@@ -19,6 +19,8 @@ window.INVITATION_CONFIG = {
     story: "Spoilt with Love and Laughter by Nana-Nani!" },
 	  { src: "assets/images/Mamu.jpg", alt: "Family photograph", caption: "With Mamu",storyTitle: "With Mamu",
     story: "Mamu's Little Partner in Crime!!" },
+	  { src: "assets/images/chotodadan&chotoumma.jpg", alt: "With Chotodadan & Chotoumma", caption: "With Chotodadan & Chotoumma",storyTitle: "Chotodadan & Chotoumma – My VIPs",
+    story: "Officially appointed as my personal cuddle providers, mischief partners, and full-time admirers!" },
      { src: "assets/images/Baby1.jpg", alt: "Baby photograph", caption: "Our little sunshine",storyTitle: "Tiny Me, Infinite Love – Their Happiness Begins With Me!",
     story: "I am their little world and biggest blessing. Tiny hands, endless love! ❤️" },
      { src: "assets/images/Baby2.jpg", alt: "Family photograph", caption: "Together",  storyTitle: "I May Be Little, But I Am Their Whole World!",
